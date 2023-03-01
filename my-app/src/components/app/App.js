@@ -4,14 +4,13 @@ import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
 import ErrorBoundery from "../errorBoundery/ErrorBoundery";
+import MyName from "../myName/Name";
 
 import decoration from '../../resources/img/vision.png';
 
 class App extends Component{
     state = {
-        showRandomChar: true,
         selectedChar: null
-
     }
 
     onCharSelected = (id) => {
@@ -23,12 +22,14 @@ class App extends Component{
     render() {
         return (
             <div className="app">
+                <MyName/>
                 <AppHeader/>
+                
                 <main>
                     <RandomChar/>
                     
                     <div className="char__content">
-                        <CharList onCharSelected={this.onCharSelected}/>
+                            <CharList onCharSelected={this.onCharSelected}/>
                         <ErrorBoundery>
                             <CharInfo charId={this.state.selectedChar}/>
                         </ErrorBoundery>
